@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<avalanche name="Trans" description="Проект хакатона">
+
+	<!-- Реализация сервисов приложения                                                     -->
+	<!--     service - признак наличия методов реализации REST сервисов в экземпляре класса             -->
+	<application class="ru.requeststop.ApplicationREST" name="rest-service" service="true">
+	</application>
+
+</avalanche>
