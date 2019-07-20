@@ -12,9 +12,9 @@ import javax.ws.rs.core.Application;
 import ru.funsys.avalanche.Avalanche;
 
 /**
- * <p>Класс регистрации реализованных REST сервисов в сервлете Jersey (JAX-RS 2.0)
- * <b>{@code org.glassfish.jersey.servlet.ServletContainer}</b>, см web.xml, параметр
- * <b>{@code javax.ws.rs.Application}</b>. Пример:</p>
+ * <p>РљР»Р°СЃСЃ СЂРµРіРёСЃС‚СЂР°С†РёРё СЂРµР°Р»РёР·РѕРІР°РЅРЅС‹С… REST СЃРµСЂРІРёСЃРѕРІ РІ СЃРµСЂРІР»РµС‚Рµ Jersey (JAX-RS 2.0)
+ * <b>{@code org.glassfish.jersey.servlet.ServletContainer}</b>, СЃРј web.xml, РїР°СЂР°РјРµС‚СЂ
+ * <b>{@code javax.ws.rs.Application}</b>. РџСЂРёРјРµСЂ:</p>
  * <pre>
  * &lt;servlet>
  *   &lt;servlet-name>jersey-serlvet&lt;/servlet-name>
@@ -30,16 +30,16 @@ import ru.funsys.avalanche.Avalanche;
  *   &lt;load-on-startup>2&lt;/load-on-startup>
  * &lt;/servlet>
  * </pre>
- * <p>Все классы реализованных сервисов регистрируются как "singleton" - создаются в
- * одном экземпляре. Каждый экземпляр класса обрабатывают множество вызовы в
- * параллельных потоках. Это накладывает ограничения использования полей класса
- * реализованного сервиса. Значение поля, установленное в одном потоке, может быть
- * переопределено значением, устанавливаемом в другом потоке.</p>
+ * <p>Р’СЃРµ РєР»Р°СЃСЃС‹ СЂРµР°Р»РёР·РѕРІР°РЅРЅС‹С… СЃРµСЂРІРёСЃРѕРІ СЂРµРіРёСЃС‚СЂРёСЂСѓСЋС‚СЃСЏ РєР°Рє "singleton" - СЃРѕР·РґР°СЋС‚СЃСЏ РІ
+ * РѕРґРЅРѕРј СЌРєР·РµРјРїР»СЏСЂРµ. РљР°Р¶РґС‹Р№ СЌРєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР° РѕР±СЂР°Р±Р°С‚С‹РІР°СЋС‚ РјРЅРѕР¶РµСЃС‚РІРѕ РІС‹Р·РѕРІС‹ РІ
+ * РїР°СЂР°Р»Р»РµР»СЊРЅС‹С… РїРѕС‚РѕРєР°С…. Р­С‚Рѕ РЅР°РєР»Р°РґС‹РІР°РµС‚ РѕРіСЂР°РЅРёС‡РµРЅРёСЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РїРѕР»РµР№ РєР»Р°СЃСЃР°
+ * СЂРµР°Р»РёР·РѕРІР°РЅРЅРѕРіРѕ СЃРµСЂРІРёСЃР°. Р—РЅР°С‡РµРЅРёРµ РїРѕР»СЏ, СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРµ РІ РѕРґРЅРѕРј РїРѕС‚РѕРєРµ, РјРѕР¶РµС‚ Р±С‹С‚СЊ
+ * РїРµСЂРµРѕРїСЂРµРґРµР»РµРЅРѕ Р·РЅР°С‡РµРЅРёРµРј, СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРјРѕРј РІ РґСЂСѓРіРѕРј РїРѕС‚РѕРєРµ.</p>
  * <p>
- * Для определения пакета реализаций классов REST сервисов, экземпляры которых создаются для
- * каждого вызова,  используется параметр <b>{@code jersey.config.server.provider.packages}</b>.       
+ * Р”Р»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ РїР°РєРµС‚Р° СЂРµР°Р»РёР·Р°С†РёР№ РєР»Р°СЃСЃРѕРІ REST СЃРµСЂРІРёСЃРѕРІ, СЌРєР·РµРјРїР»СЏСЂС‹ РєРѕС‚РѕСЂС‹С… СЃРѕР·РґР°СЋС‚СЃСЏ РґР»СЏ
+ * РєР°Р¶РґРѕРіРѕ РІС‹Р·РѕРІР°,  РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїР°СЂР°РјРµС‚СЂ <b>{@code jersey.config.server.provider.packages}</b>.       
  * 
- * @author Валерий Лиховских
+ * @author Р’Р°Р»РµСЂРёР№ Р›РёС…РѕРІСЃРєРёС…
  *
  */
 public class ApplicationTrans extends Application {
@@ -47,26 +47,26 @@ public class ApplicationTrans extends Application {
     private Set<Object> singletons;
     
 	/**
-	 * В конструкторе класса получается ссылка на экземпляр класса Avalanche по JNDI имени,
-	 * которое определяется в конфигурации контекста сервера. Пример:
+	 * Р’ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРµ РєР»Р°СЃСЃР° РїРѕР»СѓС‡Р°РµС‚СЃСЏ СЃСЃС‹Р»РєР° РЅР° СЌРєР·РµРјРїР»СЏСЂ РєР»Р°СЃСЃР° Avalanche РїРѕ JNDI РёРјРµРЅРё,
+	 * РєРѕС‚РѕСЂРѕРµ РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ РІ РєРѕРЅС„РёРіСѓСЂР°С†РёРё РєРѕРЅС‚РµРєСЃС‚Р° СЃРµСЂРІРµСЂР°. РџСЂРёРјРµСЂ:
 	 * <pre>
-	 * &lt;Context docBase="trans" path="/trans" reloadable="true" source="org.eclipse.jst.jee.server:mp">
+	 * &lt;Context docBase="trans" path="/trans" reloadable="true" source="org.eclipse.jst.jee.server:trans">
 	 *   &lt;Resource auth="Container" factory="org.apache.naming.factory.BeanFactory"
 	 *             name="avalanche/trans"
 	 *             type="ru.funsys.avalanche.Avalanche"/>
 	 * &lt;/Context>
 	 * </pre> 
-	 * Для WEB сервера Jakarta-Tomcat используется имя контекста JNDI <b>{@code java:comp/env}</b>,
-	 * полное JNDI имя - <b>{@code java:comp/env/avalanche/trans}</b> 
+	 * Р”Р»СЏ WEB СЃРµСЂРІРµСЂР° Jakarta-Tomcat РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РёРјСЏ РєРѕРЅС‚РµРєСЃС‚Р° JNDI <b>{@code java:comp/env}</b>,
+	 * РїРѕР»РЅРѕРµ JNDI РёРјСЏ - <b>{@code java:comp/env/avalanche/trans}</b> 
 	 * 
 	 * @throws Exception
 	 */
 	public ApplicationTrans() throws Exception {
-		// Получить корневой контекст JNDI
+		// РџРѕР»СѓС‡РёС‚СЊ РєРѕСЂРЅРµРІРѕР№ РєРѕРЅС‚РµРєСЃС‚ JNDI
 		Context initContext = new InitialContext();
-		// Получить ссылку на класс Avalanche по имени JNDI
+		// РџРѕР»СѓС‡РёС‚СЊ СЃСЃС‹Р»РєСѓ РЅР° РєР»Р°СЃСЃ Avalanche РїРѕ РёРјРµРЅРё JNDI
 		Avalanche avalanche = (Avalanche) initContext.lookup(Avalanche.getJndiContext() + '/' + "avalanche/trans");
-		// Получить список классов, реализованных REST сервисов
+		// РџРѕР»СѓС‡РёС‚СЊ СЃРїРёСЃРѕРє РєР»Р°СЃСЃРѕРІ, СЂРµР°Р»РёР·РѕРІР°РЅРЅС‹С… REST СЃРµСЂРІРёСЃРѕРІ
 		singletons = avalanche.getSingletons();
 	}
 

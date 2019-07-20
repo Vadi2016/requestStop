@@ -6,7 +6,7 @@ package ru.requeststop;
 import ru.funsys.avalanche.Application;
 
 /**
- * @author Валерий Лиховских
+ * @author Р’Р°Р»РµСЂРёР№ Р›РёС…РѕРІСЃРєРёС…
  *
  */
 public class ApplicationREST extends Application {

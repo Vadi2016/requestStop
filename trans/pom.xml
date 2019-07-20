@@ -5,8 +5,13 @@
   <artifactId>trans</artifactId>
   <packaging>war</packaging>
   <version>1.0.0</version>
-  <name>trans Maven Webapp</name>
+  <name>Trans Web Application</name>
   <url>http://maven.apache.org</url>
+
+ <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
