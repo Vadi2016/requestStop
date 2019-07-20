@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd" >
+<properties version="1.0">
+  <comment>Сервер приложения Городской транспорт</comment>
+  <entry key="SYS0001E">Сообщение не найдено, код: {0} .</entry>
+
+  <entry key="ROUTE001E">Ошибка поиска маршрутов.</entry>
+
+</properties>

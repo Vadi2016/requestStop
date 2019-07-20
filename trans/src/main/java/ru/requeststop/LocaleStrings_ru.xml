@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd" >
+<properties version="1.0">
+<comment>Application server Sity Transport</comment>
+  <entry key="ROUTE001E">Route finding error.</entry>
+
+</properties>
