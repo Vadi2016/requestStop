@@ -5,5 +5,7 @@
   <entry key="SYS0001E">Сообщение не найдено, код: {0} .</entry>
 
   <entry key="ROUTE001E">Ошибка поиска маршрутов.</entry>
+  <entry key="ROUTE002E">Рассписание маршрута не найдена.</entry>
+  <entry key="ROUTE003E">Ошибка запроса расписания маршрута.</entry>
 
 </properties>

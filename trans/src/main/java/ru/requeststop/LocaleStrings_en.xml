@@ -5,4 +5,7 @@
   <entry key="SYS0001E">Message not found, code: {0}.</entry>
 
   <entry key="ROUTE001E">Route finding error.</entry>
+  <entry key="ROUTE002E">The route schedule was not found.</entry>
+  <entry key="ROUTE003E">Error requesting a route schedule.</entry>
+
 </properties>
