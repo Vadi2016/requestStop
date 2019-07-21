@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <avalanche name="Trans" description="Проект хакатона">
 
-	<!-- Реализация сервисов приложения                                                     -->
-	<!--     service - признак наличия методов реализации REST сервисов в экземпляре класса             -->
+	<!-- Функционал загрузки справочников приложения из БД                                          -->
+	<!--     name   - имя функции, под которым она известна в локальной системе, по этому имени     -->
+	<!--              адаптеры приложений получают доступ к методам этой функции                    -->
+	<function class="ru.requeststop.FunctionRoute" name="function-route" 
+	          description="Функция поиска маршрутов" >
+	</function>
+
+	<!-- Реализация сервисов приложения                                                             -->
+	<!--     service - признак наличия методов реализации REST сервисов в экземпляре класса         -->
 	<application class="ru.requeststop.ApplicationREST" name="rest-service" service="true">
+		<!-- Адаптер вызова методов функции ru.requeststop.AdapterRoute                             -->
+		<!--     name - имя адаптера, значение adapterRoute определяет имя поля в классе приложения -->
+		<!--            ru.requeststop.ApplicationREST или имя метода                               -->
+		<!--            setAdapterRoute(AdapterRoute adapterRoute) это класса                       -->
+		<!--     uri  - имя локальной функции, методы которой вызываются с использованием           -->
+		<!--            этого адаптера (см. функцию ru.requeststop.FunctionRoute)                   -->
+		<adapter class="ru.requeststop.AdapterRoute" name="adapterRoute" uri="function-route" />
+	
 	</application>
 
 </avalanche>
