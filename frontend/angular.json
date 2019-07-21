@@ -27,9 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/vendors/Semantic-UI-CSS-master/semantic.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./src/assets/vendors/Semantic-UI-CSS-master/semantic.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
