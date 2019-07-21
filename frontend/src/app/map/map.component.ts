@@ -1,4 +1,6 @@
 import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {NavApiService} from '../_services';
+import {catchError} from "rxjs/operators";
 
 declare var H: any;
 
@@ -38,7 +40,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   private search: any;
   DraggableMarkerIsActive = false;
 
-  constructor() {
+  constructor(private routeService: NavApiService) {
   }
 
   public ngOnInit() {
@@ -48,6 +50,10 @@ export class MapComponent implements OnInit, AfterViewInit {
     });
 
     this.search = new H.places.Search(this.platform.getPlacesService());
+    this.routeService.getRoute().subscribe((res) => {
+        console.log(res);
+      },
+    );
   }
 
 
@@ -111,34 +117,20 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   addDraggableMarker() {
-    if (this.DraggableMarkerIsActive) {
-      this.map.addEventListener('tap', (evt) => {
-        const coord = this.map.screenToGeo(evt.currentPointer.viewportX,
-          evt.currentPointer.viewportY);
-        console.log('Clicked at ' + Math.abs(coord.lat) +
-          ' ' + Math.abs(coord.lng));
-        const marker = new H.map.Marker({lat: Math.abs(coord.lat), lng: Math.abs(coord.lng)}, {
-          // mark the object as volatile for the smooth dragging
-          volatility: true
-        });
-        marker.draggable = true;
-        this.map.addObject(marker);
-      });
-    } else {
-      this.map.removeEventListener('tap', (evt) => {
-        const coord = this.map.screenToGeo(evt.currentPointer.viewportX,
-          evt.currentPointer.viewportY);
-        console.log('Clicked at ' + Math.abs(coord.lat) +
-          ' ' + Math.abs(coord.lng));
-        const marker = new H.map.Marker({lat: Math.abs(coord.lat), lng: Math.abs(coord.lng)}, {
-          // mark the object as volatile for the smooth dragging
-          volatility: true
-        });
-        marker.draggable = true;
-        this.map.addObject(marker);
-      });
-    }
 
+
+    this.map.addEventListener('dbltap', (evt) => {
+      const coord = this.map.screenToGeo(evt.currentPointer.viewportX,
+        evt.currentPointer.viewportY);
+      console.log('Clicked at ' + Math.abs(coord.lat) +
+        ' ' + Math.abs(coord.lng));
+      const marker = new H.map.Marker({lat: Math.abs(coord.lat), lng: Math.abs(coord.lng)}, {
+        // mark the object as volatile for the smooth dragging
+        volatility: true
+      });
+      marker.draggable = true;
+      this.map.addObject(marker);
+    });
 
     this.map.addEventListener('dragstart', (ev) => {
       const target = ev.target;
