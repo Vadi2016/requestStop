@@ -1,32 +1,46 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {API_URL} from '../../environments/environment';
-import {map} from 'rxjs/operators';
-import {CommentModel} from '../_models';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {RouteTransportModel} from '../_models';
 
 @Injectable({providedIn: 'root'})
-export class NavApiSevice {
-  public currentCommentListSubj: BehaviorSubject<CommentModel[]>;
-  public currentCommentList: Observable<CommentModel[]>;
-
+export class NavApiService {
 
   constructor(private http: HttpClient) {
-    this.currentCommentListSubj = new BehaviorSubject<CommentModel[]>([]);
-    this.currentCommentList = this.currentCommentListSubj.asObservable();
+
   }
 
-  getAllCommnets(id): Observable<CommentModel[]> {
-    return this.http.get<CommentModel[]>(`${API_URL}/tracks/${id}/comments`).pipe(map(comments => {
-      if (comments) {
-        this.currentCommentListSubj.next(comments);
-      }
-      return comments;
-    }));
+
+  getRoute(firstLatitude = '1', firstLongitude = '1', lastLatitude = '1', lastLongitude = '1'): Observable<RouteTransportModel> {
+
+
+    const requestOptions = {
+      params: new HttpParams().set('firstLatitude', firstLatitude)
+        .set('firstLongitude', firstLongitude)
+        .set('lastLatitude', lastLatitude)
+        .set('lastLongitude', lastLongitude)
+    };
+    return this.http.get<RouteTransportModel>(`http://localhost:8080/trans/cxf/route/find`,
+      requestOptions
+      )
+      .pipe(map(route => {
+        catchError(this.handleError);
+        return route;
+      }));
   }
 
-  addComment(id, content, userId): Observable<any> {
-    return this.http.post<any>(`${API_URL}/tracks/${id}/comments`, new HttpParams().set('content', content).set('userId', userId));
+  handleError(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
   }
 
 }
