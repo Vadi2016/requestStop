@@ -1,0 +1,43 @@
+.sidebar {
+  width: 370px !important;
+  z-index: 20;
+
+  padding: 110px 40px 0 40px;
+  background: #eeeeee;
+
+
+  .item {
+
+
+    span {
+      margin-left: 10px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 16px;
+      color: #d65a31;
+
+    }
+
+    &:before {
+      width: 0 !important;
+      background: #d65a31;
+      height: 2px;
+      transition: all .5s ease;
+    }
+
+
+
+    &:hover {
+      background: transparent;
+
+
+      &:before {
+        width: 100% !important;
+      }
+
+    }
+
+
+  }
+
+
+}

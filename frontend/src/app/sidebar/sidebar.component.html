@@ -1,0 +1,28 @@
+<div class="ui visible sidebar vertical menu">
+  <a class="item" (click)="onenRout = !onenRout">
+    <img src="../../assets/fromAtoB.PNG" alt="">
+    <span>Выбор маршрута</span>
+    <app-route [hidden]="!onenRout"></app-route>
+  </a>
+  <a class="item" (click)="openTime = !openTime">
+    <img src="../../assets/temp.PNG" alt="">
+    <span>Расписание</span>
+    <app-schedule [hidden]="!openTime"></app-schedule>
+  </a>
+  <a class="item">
+    <img src="../../assets/pay.PNG" alt="">
+    <span>Способы оплаты</span>
+  </a>
+  <a class="item">
+    <img src="../../assets/message.PNG" alt="">
+    <span>Сообщения</span>
+  </a>
+  <a class="item">
+    <img src="../../assets/bus.PNG" alt="">
+    <span>Характеристики автобусов</span>
+  </a>
+  <a class="item">
+    <img src="../../assets/man.PNG" alt="">
+    <span>Личный кабинет</span>
+  </a>
+</div>
