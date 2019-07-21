@@ -1,0 +1,53 @@
+.sidebar {
+  background: transparent !important;
+  width: 370px !important;
+
+  .inner {
+    width: 270px;
+    height: 100%;
+    margin-left: 100px;
+    background: #eeeeee;
+    -webkit-box-shadow: -10px 0px 20px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -10px 0px 20px -8px rgba(0,0,0,0.75);
+    box-shadow: -10px 0px 20px -8px rgba(0,0,0,0.75);
+    padding: 140px 10px 0 30px;
+
+    &:after {
+      content: '';
+      width: 25px;
+      height: 25px;
+      transform: rotate(45deg);
+      background: #eee;
+      left: -5px;
+      position: absolute;
+      top: 120px;
+    }
+
+
+    .field {
+      label {
+        color: #d65a31;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      input {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #d65a31;
+        padding: 0;
+      }
+
+
+      input[name="from"] {
+        width: 145px;
+      }
+
+      input[name="to"] {
+        width: 160px;
+      }
+
+    }
+  }
+
+}
